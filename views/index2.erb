@@ -1,6 +1,24 @@
-<link rel="stylesheet" href="css/style2.css">
+<h1>These are the holidays in this month:</h1>
 
-<p>If you have a dog and need some food, we'll be sure to set the mood.</p>
-<p>-Puppy Cannon</p>
-<img src="images/puppy.jpeg">
+<% @holidays.each do |holiday| %>
+	<ul>
+		<% holiday.each do |search| %>
+			<li> <%= search["name"] %> is on <%= search["date"] %> </li>
+		<% end %>
+	</ul>
+<% end %>
+
+<br>
+<br>
+
+<h1>These are the holidays in the month and year I was born in:</h1>
+
+<% @holidays2.each do |holiday| %>
+	<ul>
+		<% holiday.each do |search| %>
+			<li> <%= search["name"] %> is on <%= search["date"] %> </li>
+		<% end %>
+	</ul>
+<% end %>
+
 

@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="css/style1.css">
 
-<p>Feeling hungry but wanna eat healthy, try some of this and it'll be sure to make you wealthy.</p>
-<p>-Muellers</p>
-<img src="images/pasta.jpeg">
+<% @pictures.each do |pic| %>
+  <a href="<%= pic.source_url %>" title="This cat with a hat is brought to you by The Cat API">
+    <img src="<%= pic.url %>">
+  </a>
+<% end %>
