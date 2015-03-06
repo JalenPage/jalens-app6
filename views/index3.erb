@@ -1,18 +1,31 @@
-<link rel="stylesheet" href="css/style3.css">
+<form method="GET">
+	<br>
+	<br>
+	<br>
+	Month (1-12)<br>
+	<input name="month" type="number" min="1" max="12" value="<%= params['month'] %>" required> <br>
+	<br>
+	Day (1-31)<br>
+	<input name="day" type="number" min="1" max="31" value="<%= params['day'] %>" required> <br>
+	<br>
+	Year (xxxx)<br>
+	<input name="year" type="number" value="<%= params['year'] %>" required> <br>
+	<br>
 
-<<<<<<< HEAD
-<ul>
-  <% [ 'American Shorthair', 'Abyssynian', 'Russian Blue' ].each do |cat| %>
-    <li class="cat <%= cat.downcase.gsub(' ','-') %>"><%= cat %></li>
-  <% end %>
-</ul>
-=======
-<div class="col-md-6">
-	<p>Kinda parched and in need of a drink, grab a bottle and it'll make you wink</p>
-	<p>-Coca Cola</p>
-</div>
+	<button type="submit">Submit</button> <br>
+	<br>
+</form>
 
-<div class="col-md-6">
-	<img src="images/coke.jpeg">
-</div>
->>>>>>> 8284be9689caa1bc886c287a751e1b7cfb016692
+<% if @holidays.any? %>	
+
+	<% @holidays.each do |holiday| %>
+		<ul>
+			<li> <%= holiday["name"] %> is on <%= holiday["date"] %> </li>
+		</ul>
+	<% end %>
+	
+
+<% else %>
+
+   Sorry, but we could not find any results.
+<% end %>  

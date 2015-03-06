@@ -1,19 +1,26 @@
 <link rel="stylesheet" href="css/style1.css">
+<% if @pictures.any? %>
+  <% @pictures.each do |pic| %>
+    <a href="<%= pic.source_url %>" title="This cat with a hat is brought to you by The Cat API">
+      <img src="<%= pic.url %>">
+    </a>
+  <% end %>
 
-<<<<<<< HEAD
-<% @pictures.each do |pic| %>
-  <a href="<%= pic.source_url %>" title="This cat with a hat is brought to you by The Cat API">
-    <img src="<%= pic.url %>">
-  </a>
-<% end %>
-=======
-<div class="col-md-6">
-	<p>Feeling hungry but wanna eat healthy, try some of this and it'll be sure to make you wealthy.</p>
-	<p>-Muellers</p>
-</div>
-
-<div class="col-md-6">
-	<img src="images/pasta.jpeg">
-</div>
-  
->>>>>>> 8284be9689caa1bc886c287a751e1b7cfb016692
+  <form>
+    <input name="number_of_cats" type="number">
+    <select name="type_of_image" class="form-control">
+      <option value="">All</option>
+      <option value="jpg">JPG</option>
+      <option value="png">PNG</option>
+      <option value="gif">GIF</option>
+    </select>
+    <input type="radio" name="certain_category" value="funny"/> Funny <br />
+    <input type="radio" name="certain_category" value="sunglasses"/> Sunglasses <br />
+    <input type="radio" name="certain_category" value="space"/> Space <br />
+    <input type="radio" name="certain_category" value="hats"/> Hats <br />
+    <input type="radio" name="certain_category" value="kittens"/> Kittens <br />
+    <button type="submit">Clickz me 4 catz!</button>
+  </form>
+<% else %>
+  Sorry, but we could not find any results.
+<% end %>  
